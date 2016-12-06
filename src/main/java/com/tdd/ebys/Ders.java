@@ -6,6 +6,12 @@ package com.tdd.ebys;
  * Created by darthvader on 06.12.2016.
  */
 public class Ders {
-    public int vizeNotu;
-    public int finalNotu;
+    private int vizeNotu;
+    private int finalNotu;
+
+    public int getVizeNotu() { return vizeNotu; }
+    public void setVizeNotu(int vizeNotu) { this.vizeNotu = vizeNotu; }
+
+    public int getFinalNotu() { return finalNotu; }
+    public void setFinalNotu(int finalNotu) { this.finalNotu = finalNotu; }
 }
