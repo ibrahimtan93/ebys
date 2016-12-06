@@ -1,9 +1,5 @@
 .idea
 .~lock.*
-<<<<<<< HEAD
 diagrams
 *.iml
-=======
-*.iml
-diagrams
->>>>>>> origin/master
+out
