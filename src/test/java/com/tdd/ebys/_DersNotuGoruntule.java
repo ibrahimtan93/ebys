@@ -23,4 +23,13 @@ public class _DersNotuGoruntule {
         assertEquals(70, ders.getVizeNotu());
         assertEquals(60, ders.getFinalNotu());
     }
+
+    @Test
+    public void donemSonuNotuGoruntuleTest(){
+        Ders ders = new Ders();
+        ders.setVizeNotu(90);
+        ders.setFinalNotu(50);
+        ders.hesaplaDonemSonuNotu();
+        assertEquals(66,ders.donemSonuNotu);
+    }
 }
