@@ -8,8 +8,16 @@ import static org.junit.Assert.*;
  */
 public class DersTest {
     @Test
+    public void dersConstructorTest(){
+        Ders ders = new Ders("Matematik", 1);
+
+        assertEquals("Matematik", ders.dersAdi);
+        assertEquals(1, ders.donem);
+    }
+
+    @Test
     public void vizeNotuGoruntuleTest(){
-        Ders ders = new Ders("Tdd");
+        Ders ders = new Ders("Tdd", 1);
 
         ders.setVizeNotu(70);
 
@@ -18,7 +26,7 @@ public class DersTest {
 
     @Test
     public void finalNotuGoruntuleTest(){
-        Ders ders = new Ders("Tdd");
+        Ders ders = new Ders("Tdd", 1);
 
         ders.setFinalNotu(60);
 
@@ -27,7 +35,7 @@ public class DersTest {
 
     @Test
     public void donemSonuNotuGoruntuleTest(){
-        Ders ders = new Ders("Tdd");
+        Ders ders = new Ders("Tdd", 1);
         ders.setVizeNotu(100);
         ders.setFinalNotu(50);
         ders.hesaplaDonemSonuNotu();

@@ -7,13 +7,15 @@ package com.tdd.ebys;
  */
 public class Ders {
     public String dersAdi;
+    public int donem;
 
     private int vizeNotu;
     private int finalNotu;
     private float donemSonuNotu;
 
-    public Ders(String dersAdi){
+    public Ders(String dersAdi, int donem){
         this.dersAdi = dersAdi;
+        this.donem = donem;
     }
 
     public int getVizeNotu() { return vizeNotu; }
