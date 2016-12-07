@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
 public class _DersNotuGoruntule {
     @Test
     public void dersNotuGoruntule(){
-        Ders ders = new Ders();
+        Ders ders = new Ders("Tdd");
 
         ders.setVizeNotu(70);
         ders.setFinalNotu(60);
@@ -26,10 +26,17 @@ public class _DersNotuGoruntule {
 
     @Test
     public void donemSonuNotuGoruntuleTest(){
-        Ders ders = new Ders();
+        Ders ders = new Ders("Tdd");
         ders.setVizeNotu(100);
         ders.setFinalNotu(50);
         ders.hesaplaDonemSonuNotu();
         assertEquals(70,ders.getDonemSonuNotu(),.02);
     }
+
+
+
+
+
+
+
 }
