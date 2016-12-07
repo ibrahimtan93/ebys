@@ -39,6 +39,17 @@ public class _OgrenciTest {
         assertTrue(ogrenci.derseKayitliMi("Fizik"));
     }
 
+    @Test
+    public void ogrSinavNotuGoruntuleTest(){
+        Ogrenci ogrenci = new Ogrenci();
+        ogrenci.dersKayit("Matematik");
+        ogrenci.notGirisiVize("Matematik",50);
+        ogrenci.notGirisiFinal("Matematik",100);
+
+        assertEquals(50,ogrenci.notGoruntuleVize("Matematik"));
+        assertEquals(100,ogrenci.notGoruntuleFinal("Matematik"));
+
+    }
 
 
 }

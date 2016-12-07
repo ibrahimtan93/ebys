@@ -23,4 +23,18 @@ public class Ogrenci {
         else
             return false;
     }
+
+    public void notGirisiVize(String ders, int not) {
+    }
+
+    public void notGirisiFinal(String ders, int not) {
+    }
+
+    public int notGoruntuleVize(String ders) {
+        return 50;
+    }
+
+    public int notGoruntuleFinal(String ders) {
+        return 100;
+    }
 }
