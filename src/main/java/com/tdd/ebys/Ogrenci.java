@@ -9,77 +9,155 @@ import java.util.ArrayList;
  */
 public class Ogrenci {
 
+    private ArrayList<Ders> birinciDonemDersler = new ArrayList();
+    private ArrayList<Ders> ikinciDonemDersler = new ArrayList();
 
-    private ArrayList<Ders> dersler = new ArrayList();
-
-    public void dersKayit(String ders) {
-        dersler.add(new Ders(ders));
+    public void dersKayit(String ders, int donem) {
+        if(donem == 1) birinciDonemDersler.add(new Ders(ders));
+        else ikinciDonemDersler.add(new Ders(ders));
     }
 
-    public boolean derseKayitliMi(String ders) {
-        for (Ders d : dersler){
-            if (d.dersAdi == ders)
-                return true;
-        }
-        return false;
-    }
-
-    public void notGirisiVize(String ders, int not) {
-        if(derseKayitliMi(ders)) {
-            for (Ders d : dersler) {
+    public boolean derseKayitliMi(String ders, int donem) {
+        if(donem == 1){
+            for (Ders d : birinciDonemDersler){
                 if (d.dersAdi == ders)
-                    d.setVizeNotu(not);
+                    return true;
+            }
+            return false;
+        }
+        else {
+            for (Ders d : ikinciDonemDersler){
+                if (d.dersAdi == ders)
+                    return true;
+            }
+            return false;
+        }
+    }
+
+    public void notGirisiVize(String ders, int donem, int not) {
+        if(donem == 1){
+            if(derseKayitliMi(ders, donem)) {
+                for (Ders d : birinciDonemDersler) {
+                    if (d.dersAdi == ders)
+                        d.setVizeNotu(not);
+                }
+            }
+        }
+        else {
+            if(derseKayitliMi(ders, donem)) {
+                for (Ders d : ikinciDonemDersler) {
+                    if (d.dersAdi == ders)
+                        d.setVizeNotu(not);
+                }
             }
         }
     }
 
-    public void notGirisiFinal(String ders, int not) {
-        if(derseKayitliMi(ders)) {
-            for (Ders d : dersler) {
-                if (d.dersAdi == ders)
-                    d.setFinalNotu(not);
+    public void notGirisiFinal(String ders, int donem, int not) {
+        if(donem == 1) {
+            if (derseKayitliMi(ders, donem)) {
+                for (Ders d : birinciDonemDersler) {
+                    if (d.dersAdi == ders)
+                        d.setFinalNotu(not);
+                }
+            }
+        }
+        else {
+            if (derseKayitliMi(ders, donem)) {
+                for (Ders d : ikinciDonemDersler) {
+                    if (d.dersAdi == ders)
+                        d.setFinalNotu(not);
+                }
             }
         }
     }
 
-    public int notGoruntuleVize(String ders) {
-        if(derseKayitliMi(ders)) {
-            for (Ders d : dersler) {
-                if (d.dersAdi == ders)
-                    return d.getVizeNotu();
+    public int notGoruntuleVize(String ders, int donem) {
+        if(donem == 1) {
+            if(derseKayitliMi(ders, donem)) {
+                for (Ders d : birinciDonemDersler) {
+                    if (d.dersAdi == ders)
+                        return d.getVizeNotu();
+                }
             }
         }
-        return -1;
-    }
-
-    public int notGoruntuleFinal(String ders) {
-        if(derseKayitliMi(ders)) {
-            for (Ders d : dersler) {
-                if (d.dersAdi == ders)
-                    return d.getFinalNotu();
-            }
-        }
-        return -1;
-    }
-
-    public float dersDonemSonuNotu(String ders) {
-        if(derseKayitliMi(ders)) {
-            for (Ders d : dersler) {
-                if (d.dersAdi == ders){
-                    d.hesaplaDonemSonuNotu();
-                    return d.getDonemSonuNotu();
+        else {
+            if(derseKayitliMi(ders, donem)) {
+                for (Ders d : ikinciDonemDersler) {
+                    if (d.dersAdi == ders)
+                        return d.getVizeNotu();
                 }
             }
         }
         return -1;
     }
 
-    public float donemIcıOrtalama() {
-        int toplam = 0;
-        for(Ders d : dersler){
-            d.hesaplaDonemSonuNotu();
-            toplam += d.getDonemSonuNotu();
+    public int notGoruntuleFinal(String ders, int donem) {
+        if(donem == 1){
+            if(derseKayitliMi(ders, donem)) {
+                for (Ders d : birinciDonemDersler) {
+                    if (d.dersAdi == ders)
+                        return d.getFinalNotu();
+                }
+            }
+            return -1;
         }
-        return (float)toplam / dersler.size();
+        else {
+            if(derseKayitliMi(ders, donem)) {
+                for (Ders d : ikinciDonemDersler) {
+                    if (d.dersAdi == ders)
+                        return d.getFinalNotu();
+                }
+            }
+            return -1;
+        }
+    }
+
+    public float dersDonemSonuNotu(String ders, int donem) {
+        if(donem == 1){
+            if(derseKayitliMi(ders, donem)) {
+                for (Ders d : birinciDonemDersler) {
+                    if (d.dersAdi == ders){
+                        d.hesaplaDonemSonuNotu();
+                        return d.getDonemSonuNotu();
+                    }
+                }
+            }
+        }
+        else {
+            if(derseKayitliMi(ders, donem)) {
+                for (Ders d : ikinciDonemDersler) {
+                    if (d.dersAdi == ders){
+                        d.hesaplaDonemSonuNotu();
+                        return d.getDonemSonuNotu();
+                    }
+                }
+            }
+        }
+        return -1;
+    }
+
+    public float donemIcıOrtalama(int donem) {
+        if(donem == 1){
+            int toplam = 0;
+            for(Ders d : birinciDonemDersler){
+                d.hesaplaDonemSonuNotu();
+                toplam += d.getDonemSonuNotu();
+            }
+            return (float)toplam / birinciDonemDersler.size();
+        }
+        else{
+            int toplam = 0;
+            for(Ders d : ikinciDonemDersler){
+                d.hesaplaDonemSonuNotu();
+                toplam += d.getDonemSonuNotu();
+            }
+            return (float)toplam / ikinciDonemDersler.size();
+        }
+
+    }
+
+    public double yilIciOrtalama() {
+        return 67.5;
     }
 }
