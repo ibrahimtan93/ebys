@@ -6,14 +6,23 @@ package com.tdd.ebys;
  * Created by darthvader on 06.12.2016.
  */
 public class Ders {
-    public String dersAdi;
+    private String dersAdi;
+    private int donem;
 
     private int vizeNotu;
     private int finalNotu;
-    private float donemSonuNotu;
 
-    public Ders(String dersAdi){
+    public Ders(String dersAdi, int donem){
         this.dersAdi = dersAdi;
+        this.donem = donem;
+    }
+
+    public String getDersAdi() {
+        return dersAdi;
+    }
+
+    public int getDonem() {
+        return donem;
     }
 
     public int getVizeNotu() { return vizeNotu; }
@@ -23,9 +32,6 @@ public class Ders {
     public void setFinalNotu(int finalNotu) { this.finalNotu = finalNotu; }
 
     public float getDonemSonuNotu(){
-        return donemSonuNotu;
-    }
-    public void hesaplaDonemSonuNotu() {
-        donemSonuNotu= (float) (vizeNotu*0.4+finalNotu*0.6);
+        return (float) (vizeNotu*0.4+finalNotu*0.6);
     }
 }
