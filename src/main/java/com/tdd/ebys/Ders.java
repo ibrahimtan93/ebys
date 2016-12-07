@@ -8,7 +8,7 @@ package com.tdd.ebys;
 public class Ders {
     private int vizeNotu;
     private int finalNotu;
-    public double donemSonuNotu;
+    private float donemSonuNotu;
 
     public int getVizeNotu() { return vizeNotu; }
     public void setVizeNotu(int vizeNotu) { this.vizeNotu = vizeNotu; }
@@ -16,6 +16,9 @@ public class Ders {
     public int getFinalNotu() { return finalNotu; }
     public void setFinalNotu(int finalNotu) { this.finalNotu = finalNotu; }
 
+    public float getDonemSonuNotu(){
+        return donemSonuNotu;
+    }
     public void hesaplaDonemSonuNotu() {
         donemSonuNotu= (float) (vizeNotu*0.4+finalNotu*0.6);
     }

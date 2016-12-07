@@ -30,6 +30,6 @@ public class _DersNotuGoruntule {
         ders.setVizeNotu(100);
         ders.setFinalNotu(50);
         ders.hesaplaDonemSonuNotu();
-        assertEquals(70,ders.donemSonuNotu,.02);
+        assertEquals(70,ders.getDonemSonuNotu(),.02);
     }
 }
