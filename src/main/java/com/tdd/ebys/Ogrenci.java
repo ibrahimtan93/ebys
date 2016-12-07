@@ -86,7 +86,7 @@ public class Ogrenci {
         return (float)toplam / dersSayisi;
     }
 
-    public double yilIciOrtalama() {
-        return 67.5;
+    public float yilIciOrtalama() {
+        return (this.donemIcıOrtalama(1) + this.donemIcıOrtalama(2))/2;
     }
 }

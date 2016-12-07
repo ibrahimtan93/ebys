@@ -10,33 +10,33 @@ public class OgrenciTest {
     @Test
     public void dersKayitTest() {
         Ogrenci ogrenci = new Ogrenci();
-        ogrenci.dersKayit("Matematik", 1);
+        ogrenci.dersKayit(new Ders("Matematik", 1));
 
-        assertTrue("Matematik",ogrenci.derseKayitliMi("Matematik", 1));
-        assertFalse("Fizik",ogrenci.derseKayitliMi("Fizik", 1));
+        assertTrue("Matematik",ogrenci.derseKayitliMi("Matematik"));
+        assertFalse("Fizik",ogrenci.derseKayitliMi("Fizik"));
     }
 
     @Test
     public void cokluDersKayitTest(){
         Ogrenci ogrenci = new Ogrenci();
-        ogrenci.dersKayit("Matematik", 1);
-        ogrenci.dersKayit("Fizik", 1);
+        ogrenci.dersKayit(new Ders("Matematik", 1));
+        ogrenci.dersKayit(new Ders("Fizik", 1));
 
-        assertTrue(ogrenci.derseKayitliMi("Matematik", 1));
-        assertTrue(ogrenci.derseKayitliMi("Fizik", 1));
+        assertTrue(ogrenci.derseKayitliMi("Matematik"));
+        assertTrue(ogrenci.derseKayitliMi("Fizik"));
     }
 
     @Test
     public void ogrSinavNotuGoruntuleTest(){
         Ogrenci ogrenci = new Ogrenci();
 
-        ogrenci.dersKayit("Matematik", 1);
-        ogrenci.notGirisiVize("Matematik", 1,50);
-        ogrenci.notGirisiFinal("Matematik", 1,100);
+        ogrenci.dersKayit(new Ders("Matematik", 1));
+        ogrenci.notGirisiVize("Matematik",50);
+        ogrenci.notGirisiFinal("Matematik",100);
 
-        ogrenci.dersKayit("Fizik", 1);
-        ogrenci.notGirisiVize("Fizik", 1, 30);
-        ogrenci.notGirisiFinal("Fizik", 1, 50);
+        ogrenci.dersKayit(new Ders("Fizik", 1));
+        ogrenci.notGirisiVize("Fizik", 30);
+        ogrenci.notGirisiFinal("Fizik", 50);
 
         assertEquals(50,ogrenci.notGoruntuleVize("Matematik", 1));
         assertEquals(100,ogrenci.notGoruntuleFinal("Matematik", 1));
@@ -48,13 +48,13 @@ public class OgrenciTest {
     public void ogrDersDonemSonuNotuGoruntuleTest(){
         Ogrenci ogrenci = new Ogrenci();
 
-        ogrenci.dersKayit("Matematik", 1);
-        ogrenci.notGirisiVize("Matematik", 1,50);
-        ogrenci.notGirisiFinal("Matematik", 1,100);
+        ogrenci.dersKayit(new Ders("Matematik", 1));
+        ogrenci.notGirisiVize("Matematik",50);
+        ogrenci.notGirisiFinal("Matematik",100);
 
-        ogrenci.dersKayit("Fizik", 1);
-        ogrenci.notGirisiVize("Fizik", 1, 30);
-        ogrenci.notGirisiFinal("Fizik", 1, 50);
+        ogrenci.dersKayit(new Ders("Fizik", 1));
+        ogrenci.notGirisiVize("Fizik", 30);
+        ogrenci.notGirisiFinal("Fizik", 50);
 
         assertEquals(80,ogrenci.dersDonemSonuNotu("Matematik", 1),.02);
         assertEquals(42,ogrenci.dersDonemSonuNotu("Fizik", 1),.02);
@@ -64,21 +64,21 @@ public class OgrenciTest {
     public void ogrDonemIcıOrtalama(){
         Ogrenci ogrenci = new Ogrenci();
 
-        ogrenci.dersKayit("Matematik", 1);
-        ogrenci.notGirisiVize("Matematik", 1,50);
-        ogrenci.notGirisiFinal("Matematik", 1,100);
+        ogrenci.dersKayit(new Ders("Matematik", 1));
+        ogrenci.notGirisiVize("Matematik",50);
+        ogrenci.notGirisiFinal("Matematik",100);
 
-        ogrenci.dersKayit("Fizik", 1);
-        ogrenci.notGirisiVize("Fizik", 1, 30);
-        ogrenci.notGirisiFinal("Fizik", 1, 65);
+        ogrenci.dersKayit(new Ders("Fizik", 1));
+        ogrenci.notGirisiVize("Fizik", 30);
+        ogrenci.notGirisiFinal("Fizik", 65);
 
-        ogrenci.dersKayit("Algoritma", 1);
-        ogrenci.notGirisiVize("Algoritma", 1, 55);
-        ogrenci.notGirisiFinal("Algoritma", 1, 50);
+        ogrenci.dersKayit(new Ders("Algoritma", 1));
+        ogrenci.notGirisiVize("Algoritma", 55);
+        ogrenci.notGirisiFinal("Algoritma", 50);
 
-        ogrenci.dersKayit("TDD", 1);
-        ogrenci.notGirisiVize("TDD", 1, 40);
-        ogrenci.notGirisiFinal("TDD", 1, 70);
+        ogrenci.dersKayit(new Ders("TDD", 1));
+        ogrenci.notGirisiVize("TDD", 40);
+        ogrenci.notGirisiFinal("TDD", 70);
 
         assertEquals(60.25,ogrenci.donemIcıOrtalama(1), .02);
     }
@@ -90,18 +90,18 @@ public class OgrenciTest {
     public void ogrYilIciOrtalama(){
         Ogrenci ogrenci = new Ogrenci();
 
-        ogrenci.dersKayit("Matematik", 1);
-        ogrenci.notGirisiVize("Matematik", 1, 50);
-        ogrenci.notGirisiFinal("Matematik", 1, 60);
-        ogrenci.dersKayit("Fizik", 1);
-        ogrenci.notGirisiVize("Fizik", 1, 40);
-        ogrenci.notGirisiFinal("Fizik", 1, 80);
-        ogrenci.dersKayit("Algoritma", 2);
-        ogrenci.notGirisiVize("Algoritma", 2, 35);
-        ogrenci.notGirisiFinal("Algoritma", 2, 70);
-        ogrenci.dersKayit("TDD", 2);
-        ogrenci.notGirisiVize("TDD", 2, 100);
-        ogrenci.notGirisiFinal("TDD", 2, 90);
+        ogrenci.dersKayit(new Ders("Matematik", 1));
+        ogrenci.notGirisiVize("Matematik", 50);
+        ogrenci.notGirisiFinal("Matematik", 60);
+        ogrenci.dersKayit(new Ders("Fizik", 1));
+        ogrenci.notGirisiVize("Fizik", 40);
+        ogrenci.notGirisiFinal("Fizik", 80);
+        ogrenci.dersKayit(new Ders("Algoritma", 2));
+        ogrenci.notGirisiVize("Algoritma", 35);
+        ogrenci.notGirisiFinal("Algoritma", 70);
+        ogrenci.dersKayit(new Ders("TDD", 2));
+        ogrenci.notGirisiVize("TDD", 100);
+        ogrenci.notGirisiFinal("TDD", 90);
 
         assertEquals(67.5, ogrenci.yilIciOrtalama(), 0.02);
     }
