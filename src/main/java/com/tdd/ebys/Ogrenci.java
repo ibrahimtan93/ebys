@@ -13,4 +13,8 @@ public class Ogrenci {
     public void dersKayit(String ders) {
         this.ders = ders;
     }
+
+    public boolean derseKayitliMi(String ders) {
+        return true;
+    }
 }

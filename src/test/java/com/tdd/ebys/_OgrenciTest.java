@@ -28,6 +28,16 @@ public class _OgrenciTest {
 
     }
 
+    @Test
+    public void cokluDersKayitTest(){
+        Ogrenci ogrenci = new Ogrenci();
+        ogrenci.dersKayit("Matematik");
+        ogrenci.dersKayit("Fizik");
+
+        assertTrue(ogrenci.derseKayitliMi("Matematik"));
+        assertTrue(ogrenci.derseKayitliMi("Fizik"));
+    }
+
 
 
 }
