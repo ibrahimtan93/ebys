@@ -23,7 +23,8 @@ public class _OgrenciTest {
         Ogrenci ogrenci = new Ogrenci();
         ogrenci.dersKayit("Matematik");
 
-        assertEquals("Matematik",ogrenci.ders);
+        assertTrue("Matematik",ogrenci.derseKayitliMi("Matematik"));
+        assertFalse("Fizik",ogrenci.derseKayitliMi("Fizik"));
 
 
     }
