@@ -7,4 +7,10 @@ package com.tdd.ebys;
  */
 public class Ogrenci {
 
+
+    public String ders;
+
+    public void dersKayit(String ders) {
+        this.ders = ders;
+    }
 }
