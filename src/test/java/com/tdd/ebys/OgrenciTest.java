@@ -38,10 +38,10 @@ public class OgrenciTest {
         ogrenci.notGirisiVize("Fizik", 30);
         ogrenci.notGirisiFinal("Fizik", 50);
 
-        assertEquals(50,ogrenci.notGoruntuleVize("Matematik", 1));
-        assertEquals(100,ogrenci.notGoruntuleFinal("Matematik", 1));
+        assertEquals(50,ogrenci.notGoruntuleVize("Matematik"));
+        assertEquals(100,ogrenci.notGoruntuleFinal("Matematik"));
 
-        assertEquals(30, ogrenci.notGoruntuleVize("Fizik", 1));
+        assertEquals(30, ogrenci.notGoruntuleVize("Fizik"));
     }
 
     @Test
@@ -56,8 +56,8 @@ public class OgrenciTest {
         ogrenci.notGirisiVize("Fizik", 30);
         ogrenci.notGirisiFinal("Fizik", 50);
 
-        assertEquals(80,ogrenci.dersDonemSonuNotu("Matematik", 1),.02);
-        assertEquals(42,ogrenci.dersDonemSonuNotu("Fizik", 1),.02);
+        assertEquals(80,ogrenci.dersDonemSonuNotu("Matematik"),.02);
+        assertEquals(42,ogrenci.dersDonemSonuNotu("Fizik"),.02);
     }
 
     @Test

@@ -17,7 +17,7 @@ public class Ogrenci {
 
     public boolean derseKayitliMi(String ders) {
         for (Ders d : dersler){
-            if (d.dersAdi == ders)
+            if (d.getDersAdi() == ders)
                 return true;
         }
         return false;
@@ -26,7 +26,7 @@ public class Ogrenci {
     public void notGirisiVize(String ders, int not) {
         if(derseKayitliMi(ders)) {
             for (Ders d : dersler) {
-                if (d.dersAdi == ders)
+                if (d.getDersAdi() == ders)
                     d.setVizeNotu(not);
             }
         }
@@ -35,37 +35,36 @@ public class Ogrenci {
     public void notGirisiFinal(String ders, int not) {
         if (derseKayitliMi(ders)) {
             for (Ders d : dersler) {
-                if (d.dersAdi == ders)
+                if (d.getDersAdi() == ders)
                     d.setFinalNotu(not);
             }
         }
     }
 
-    public int notGoruntuleVize(String ders, int donem) {
+    public int notGoruntuleVize(String ders) {
         if(derseKayitliMi(ders)) {
             for (Ders d : dersler) {
-                if (d.dersAdi == ders)
+                if (d.getDersAdi() == ders)
                     return d.getVizeNotu();
             }
         }
         return -1;
     }
 
-    public int notGoruntuleFinal(String ders, int donem) {
+    public int notGoruntuleFinal(String ders) {
         if(derseKayitliMi(ders)) {
             for (Ders d : dersler) {
-                if (d.dersAdi == ders)
+                if (d.getDersAdi() == ders)
                     return d.getFinalNotu();
             }
         }
         return -1;
     }
 
-    public float dersDonemSonuNotu(String ders, int donem) {
+    public float dersDonemSonuNotu(String ders) {
         if(derseKayitliMi(ders)) {
             for (Ders d : dersler) {
-                if (d.dersAdi == ders){
-                    d.hesaplaDonemSonuNotu();
+                if (d.getDersAdi() == ders){
                     return d.getDonemSonuNotu();
                 }
             }
@@ -77,8 +76,7 @@ public class Ogrenci {
         int toplam = 0;
         int dersSayisi = 0;
         for(Ders d : dersler){
-            if(d.donem == donem){
-                d.hesaplaDonemSonuNotu();
+            if(d.getDonem() == donem){
                 toplam += d.getDonemSonuNotu();
                 dersSayisi += 1;
             }

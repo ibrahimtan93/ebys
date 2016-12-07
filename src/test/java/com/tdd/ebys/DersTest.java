@@ -11,8 +11,8 @@ public class DersTest {
     public void dersConstructorTest(){
         Ders ders = new Ders("Matematik", 1);
 
-        assertEquals("Matematik", ders.dersAdi);
-        assertEquals(1, ders.donem);
+        assertEquals("Matematik", ders.getDersAdi());
+        assertEquals(1, ders.getDonem());
     }
 
     @Test
@@ -36,9 +36,9 @@ public class DersTest {
     @Test
     public void donemSonuNotuGoruntuleTest(){
         Ders ders = new Ders("Tdd", 1);
+
         ders.setVizeNotu(100);
         ders.setFinalNotu(50);
-        ders.hesaplaDonemSonuNotu();
 
         assertEquals(70,ders.getDonemSonuNotu(),.02);
     }
