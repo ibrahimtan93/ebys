@@ -84,4 +84,27 @@ public class OgrenciTest {
 
         assertEquals(60.25,ogrenci.donemIcıOrtalama(), .02);
     }
+
+    /**
+     * Yıl içinde iki dönem var. Refactoring lazım.
+     */
+    @Test
+    public void ogrYilIciOrtalama(){
+        Ogrenci ogrenci = new Ogrenci();
+
+        ogrenci.birinciDonemDersKayıt("Matematik");
+        ogrenci.notGirisiVize("Matematik",50);
+        ogrenci.notGirisiFinal("Matematik",100);
+        ogrenci.birinciDonemDersKayıt("Fizik");
+        ogrenci.notGirisiVize("Fizik",50);
+        ogrenci.notGirisiFinal("Fizik",100);
+        ogrenci.ikinciDonemDersKayıt("Algoritma");
+        ogrenci.notGirisiVize("Algoritma",50);
+        ogrenci.notGirisiFinal("Algoritma",100);
+        ogrenci.ikinciDonemDersKayıt("TDD");
+        ogrenci.notGirisiVize("TDD",50);
+        ogrenci.notGirisiFinal("TDD",100);
+
+        //??????????????????????????????????????????
+    }
 }
