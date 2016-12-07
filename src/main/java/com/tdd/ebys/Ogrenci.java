@@ -1,5 +1,7 @@
 package com.tdd.ebys;
 
+import java.util.ArrayList;
+
 /**
  * Üniversite öğrencisini temsil eder.
  *
@@ -7,4 +9,68 @@ package com.tdd.ebys;
  */
 public class Ogrenci {
 
+
+    public ArrayList<Ders> dersler = new ArrayList();
+
+    public void dersKayit(String ders) {
+        dersler.add(new Ders(ders));
+    }
+
+    public boolean derseKayitliMi(String ders) {
+        for (Ders d : dersler){
+            if (d.dersAdi==ders)
+                return true;
+        }
+        return false;
+    }
+
+    public void notGirisiVize(String ders, int not) {
+        if(derseKayitliMi(ders)) {
+            for (Ders d : dersler) {
+                if (d.dersAdi == ders)
+                    d.setVizeNotu(not);
+            }
+        }
+    }
+
+    public void notGirisiFinal(String ders, int not) {
+        if(derseKayitliMi(ders)) {
+            for (Ders d : dersler) {
+                if (d.dersAdi == ders)
+                    d.setFinalNotu(not);
+            }
+        }
+    }
+
+    public int notGoruntuleVize(String ders) {
+        if(derseKayitliMi(ders)) {
+            for (Ders d : dersler) {
+                if (d.dersAdi == ders)
+                    return d.getVizeNotu();
+            }
+        }
+        return -1;
+    }
+
+    public int notGoruntuleFinal(String ders) {
+        if(derseKayitliMi(ders)) {
+            for (Ders d : dersler) {
+                if (d.dersAdi == ders)
+                    return d.getFinalNotu();
+            }
+        }
+        return -1;
+    }
+
+    public float dersYilSonuNotu(String ders) {
+        if(derseKayitliMi(ders)) {
+            for (Ders d : dersler) {
+                if (d.dersAdi == ders){
+                    d.hesaplaDonemSonuNotu();
+                    return d.getDonemSonuNotu();
+                }
+            }
+        }
+        return -1;
+    }
 }
