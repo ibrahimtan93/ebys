@@ -61,4 +61,27 @@ public class OgrenciTest {
         assertEquals(80,ogrenci.dersDonemSonuNotu("Matematik"),.02);
         assertEquals(42,ogrenci.dersDonemSonuNotu("Fizik"),.02);
     }
+
+    @Test
+    public void ogrDonemIcıOrtalama(){
+        Ogrenci ogrenci = new Ogrenci();
+
+        ogrenci.dersKayit("Matematik");
+        ogrenci.notGirisiVize("Matematik",50);
+        ogrenci.notGirisiFinal("Matematik",100);
+
+        ogrenci.dersKayit("Fizik");
+        ogrenci.notGirisiVize("Fizik", 30);
+        ogrenci.notGirisiFinal("Fizik", 65);
+
+        ogrenci.dersKayit("Algoritma");
+        ogrenci.notGirisiVize("Algoritma", 55);
+        ogrenci.notGirisiFinal("Algoritma", 50);
+
+        ogrenci.dersKayit("TDD");
+        ogrenci.notGirisiVize("TDD", 40);
+        ogrenci.notGirisiFinal("TDD", 70);
+
+        assertEquals(60.25,ogrenci.donemIcıOrtalama(), .02);
+    }
 }

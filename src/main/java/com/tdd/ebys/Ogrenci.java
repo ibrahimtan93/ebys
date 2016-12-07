@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class Ogrenci {
 
 
-    public ArrayList<Ders> dersler = new ArrayList();
+    private ArrayList<Ders> dersler = new ArrayList();
 
     public void dersKayit(String ders) {
         dersler.add(new Ders(ders));
@@ -18,7 +18,7 @@ public class Ogrenci {
 
     public boolean derseKayitliMi(String ders) {
         for (Ders d : dersler){
-            if (d.dersAdi==ders)
+            if (d.dersAdi == ders)
                 return true;
         }
         return false;
@@ -72,5 +72,14 @@ public class Ogrenci {
             }
         }
         return -1;
+    }
+
+    public float donemIcıOrtalama() {
+        int toplam = 0;
+        for(Ders d : dersler){
+            d.hesaplaDonemSonuNotu();
+            toplam += d.getDonemSonuNotu();
+        }
+        return (float)toplam / dersler.size();
     }
 }
