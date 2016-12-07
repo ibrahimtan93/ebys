@@ -61,4 +61,16 @@ public class Ogrenci {
         }
         return -1;
     }
+
+    public float dersYilSonuNotu(String ders) {
+        if(derseKayitliMi(ders)) {
+            for (Ders d : dersler) {
+                if (d.dersAdi == ders){
+                    d.hesaplaDonemSonuNotu();
+                    return d.getDonemSonuNotu();
+                }
+            }
+        }
+        return -1;
+    }
 }

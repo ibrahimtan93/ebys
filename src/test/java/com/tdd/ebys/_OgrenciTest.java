@@ -48,8 +48,11 @@ public class _OgrenciTest {
 
         assertEquals(50,ogrenci.notGoruntuleVize("Matematik"));
         assertEquals(100,ogrenci.notGoruntuleFinal("Matematik"));
+        assertEquals(80,ogrenci.dersYilSonuNotu("Matematik"),.02);
 
     }
+
+
 
 
 }
