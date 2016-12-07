@@ -105,4 +105,24 @@ public class OgrenciTest {
 
         assertEquals(67.5, ogrenci.yilIciOrtalama(), 0.02);
     }
+
+    @Test
+    public void ogrBirikimliOrtlama(){
+        Ogrenci ogrenci = new Ogrenci();
+
+        ogrenci.dersKayit(new Ders("Matematik", 1));
+        ogrenci.notGirisiVize("Matematik", 50);
+        ogrenci.notGirisiFinal("Matematik", 60);
+        ogrenci.dersKayit(new Ders("Fizik", 2));
+        ogrenci.notGirisiVize("Fizik", 40);
+        ogrenci.notGirisiFinal("Fizik", 80);
+        ogrenci.dersKayit(new Ders("Algoritma", 3));
+        ogrenci.notGirisiVize("Algoritma", 35);
+        ogrenci.notGirisiFinal("Algoritma", 70);
+        ogrenci.dersKayit(new Ders("TDD", 4));
+        ogrenci.notGirisiVize("TDD", 100);
+        ogrenci.notGirisiFinal("TDD", 90);
+
+        assertEquals(67.5, ogrenci.birikimliOrtalama(), 0.02);
+    }
 }
