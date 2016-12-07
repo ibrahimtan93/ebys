@@ -6,9 +6,15 @@ package com.tdd.ebys;
  * Created by darthvader on 06.12.2016.
  */
 public class Ders {
+    public String dersAdi;
+
     private int vizeNotu;
     private int finalNotu;
     private float donemSonuNotu;
+
+    public Ders(String dersAdi){
+        this.dersAdi = dersAdi;
+    }
 
     public int getVizeNotu() { return vizeNotu; }
     public void setVizeNotu(int vizeNotu) { this.vizeNotu = vizeNotu; }
