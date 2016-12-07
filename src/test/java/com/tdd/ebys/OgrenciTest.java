@@ -15,9 +15,7 @@ import static org.junit.Assert.*;
  *
  * Created by prometheus on 12/7/16.
  */
-public class _OgrenciTest {
-
-
+public class OgrenciTest {
     @Test
     public void dersKayitTest() {
         Ogrenci ogrenci = new Ogrenci();
@@ -25,8 +23,6 @@ public class _OgrenciTest {
 
         assertTrue("Matematik",ogrenci.derseKayitliMi("Matematik"));
         assertFalse("Fizik",ogrenci.derseKayitliMi("Fizik"));
-
-
     }
 
     @Test
@@ -49,10 +45,5 @@ public class _OgrenciTest {
         assertEquals(50,ogrenci.notGoruntuleVize("Matematik"));
         assertEquals(100,ogrenci.notGoruntuleFinal("Matematik"));
         assertEquals(80,ogrenci.dersYilSonuNotu("Matematik"),.02);
-
     }
-
-
-
-
 }

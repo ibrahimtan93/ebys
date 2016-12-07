@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
  *
  * Created by darthvader on 06.12.2016.
  */
-public class _DersNotuGoruntule {
+public class DersNotuGoruntule {
     @Test
     public void dersNotuGoruntule(){
         Ders ders = new Ders("Tdd");
@@ -32,11 +32,4 @@ public class _DersNotuGoruntule {
         ders.hesaplaDonemSonuNotu();
         assertEquals(70,ders.getDonemSonuNotu(),.02);
     }
-
-
-
-
-
-
-
 }
