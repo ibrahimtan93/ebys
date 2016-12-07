@@ -10,31 +10,55 @@ import java.util.ArrayList;
 public class Ogrenci {
 
 
-    public String ders;
-    public ArrayList dersler = new ArrayList();
+    public ArrayList<Ders> dersler = new ArrayList();
 
     public void dersKayit(String ders) {
-        dersler.add(ders);
+        dersler.add(new Ders(ders));
     }
 
     public boolean derseKayitliMi(String ders) {
-        if (dersler.contains(ders))
-            return true;
-        else
-            return false;
+        for (Ders d : dersler){
+            if (d.dersAdi==ders)
+                return true;
+        }
+        return false;
     }
 
     public void notGirisiVize(String ders, int not) {
+        if(derseKayitliMi(ders)) {
+            for (Ders d : dersler) {
+                if (d.dersAdi == ders)
+                    d.setVizeNotu(not);
+            }
+        }
     }
 
     public void notGirisiFinal(String ders, int not) {
+        if(derseKayitliMi(ders)) {
+            for (Ders d : dersler) {
+                if (d.dersAdi == ders)
+                    d.setFinalNotu(not);
+            }
+        }
     }
 
     public int notGoruntuleVize(String ders) {
-        return 50;
+        if(derseKayitliMi(ders)) {
+            for (Ders d : dersler) {
+                if (d.dersAdi == ders)
+                    return d.getVizeNotu();
+            }
+        }
+        return -1;
     }
 
     public int notGoruntuleFinal(String ders) {
-        return 100;
+        if(derseKayitliMi(ders)) {
+            for (Ders d : dersler) {
+                if (d.dersAdi == ders)
+                    return d.getFinalNotu();
+            }
+        }
+        return -1;
     }
 }
