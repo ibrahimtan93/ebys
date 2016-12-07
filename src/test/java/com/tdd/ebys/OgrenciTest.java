@@ -6,13 +6,6 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- *
- *  TODO ders kaydı
- *  TODO vize, final notu görüntüleme
- *  TODO yılsonu notu görüntüleme
- *  TODO kayıtlı dersleri görüntüleme
- *
- *
  * Created by prometheus on 12/7/16.
  */
 public class OgrenciTest {
@@ -38,12 +31,34 @@ public class OgrenciTest {
     @Test
     public void ogrSinavNotuGoruntuleTest(){
         Ogrenci ogrenci = new Ogrenci();
+
         ogrenci.dersKayit("Matematik");
         ogrenci.notGirisiVize("Matematik",50);
         ogrenci.notGirisiFinal("Matematik",100);
 
+        ogrenci.dersKayit("Fizik");
+        ogrenci.notGirisiVize("Fizik", 30);
+        ogrenci.notGirisiFinal("Fizik", 50);
+
         assertEquals(50,ogrenci.notGoruntuleVize("Matematik"));
         assertEquals(100,ogrenci.notGoruntuleFinal("Matematik"));
-        assertEquals(80,ogrenci.dersYilSonuNotu("Matematik"),.02);
+
+        assertEquals(30, ogrenci.notGoruntuleVize("Fizik"));
+    }
+
+    @Test
+    public void ogrDersDonemSonuNotuGoruntuleTest(){
+        Ogrenci ogrenci = new Ogrenci();
+
+        ogrenci.dersKayit("Matematik");
+        ogrenci.notGirisiVize("Matematik",50);
+        ogrenci.notGirisiFinal("Matematik",100);
+
+        ogrenci.dersKayit("Fizik");
+        ogrenci.notGirisiVize("Fizik", 30);
+        ogrenci.notGirisiFinal("Fizik", 50);
+
+        assertEquals(80,ogrenci.dersDonemSonuNotu("Matematik"),.02);
+        assertEquals(42,ogrenci.dersDonemSonuNotu("Fizik"),.02);
     }
 }

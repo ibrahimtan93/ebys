@@ -4,23 +4,24 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * Bir öğrenci, bir dersten aldığı notları görüntüleyebilmelidir.
- *
- * TODO Dersin vize ve final notlarını görüntüle
- * TODO Dersin dönem sonu notunu görüntüle
- * TODO Ders notlarını private yap
- *
  * Created by darthvader on 06.12.2016.
  */
-public class DersNotuGoruntule {
+public class DersTest {
     @Test
-    public void dersNotuGoruntule(){
+    public void vizeNotuGoruntuleTest(){
         Ders ders = new Ders("Tdd");
 
         ders.setVizeNotu(70);
-        ders.setFinalNotu(60);
 
         assertEquals(70, ders.getVizeNotu());
+    }
+
+    @Test
+    public void finalNotuGoruntuleTest(){
+        Ders ders = new Ders("Tdd");
+
+        ders.setFinalNotu(60);
+
         assertEquals(60, ders.getFinalNotu());
     }
 
@@ -30,6 +31,7 @@ public class DersNotuGoruntule {
         ders.setVizeNotu(100);
         ders.setFinalNotu(50);
         ders.hesaplaDonemSonuNotu();
+
         assertEquals(70,ders.getDonemSonuNotu(),.02);
     }
 }

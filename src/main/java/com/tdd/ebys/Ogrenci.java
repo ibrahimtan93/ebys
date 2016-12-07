@@ -62,7 +62,7 @@ public class Ogrenci {
         return -1;
     }
 
-    public float dersYilSonuNotu(String ders) {
+    public float dersDonemSonuNotu(String ders) {
         if(derseKayitliMi(ders)) {
             for (Ders d : dersler) {
                 if (d.dersAdi == ders){
